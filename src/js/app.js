@@ -42,4 +42,16 @@ function deleteBook(id) {
     renderBooks();
 }
 
-// Conectar formulario para
+// Conectar formulario para agregar libros
+document.getElementById('add-book-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const title = document.getElementById('book-title').value;
+    const author = document.getElementById('book-author').value;
+
+    addBook(title, author);
+    document.getElementById('book-title').value = '';
+    document.getElementById('book-author').value = '';
+});
+
+// Renderizar los libros iniciales
+renderBooks();
